@@ -78,7 +78,8 @@ cat claude_monet/owner_office/owner_order claude_monet/chef_office/barinov_reply
 cat claude_monet/kitchen/chef_order >> nagiev_call
 mv claude_monet/advertising/promo_plan archive/promo_final
 
-find . -type f ! -name '*copy*' -printf '%s %p\n' | sort -nr | head -5
+ls -lR | grep -v 'copy' | grep '^-' | sort -k5 -nr | head -5
+find . -tipe f ! -name '*copy*' -printf '%s %p\n' | sort -nr | head -5
 grep -RhiE 'нагиев|баринов' claude_monet archive | grep -vi 'реклам' | sort -r | head -5
 grep -Ril 'поставщик' claude_monet/contracts claude_monet/owner_office | wc -l
 { head -qn 1 claude_monet/contracts/*; tail -qn 1 claude_monet/contracts/*; } | grep -iE 'поставщик|музыкант|оплат' | sort
